@@ -1,11 +1,11 @@
 
 import React, { useState } from 'react';
 
-function ImageHover() {
+function ImageHover({ size }) {
   const [hovered, setHovered] = useState(false);
 
-  const defaultImage = 'frontend/src/assets/images/nanabooboo-logo-closed.png';
-  const hoverImage = 'frontend/src/assets/images/nanabooboo-logo-open.png';
+  const defaultImage = './src/assets/images/nanabooboo-logo-closed.png';
+  const hoverImage = './src/assets/images/nanabooboo-logo-open.png';
 
   const handleMouseEnter = () => setHovered(true);
   const handleMouseLeave = () => setHovered(false);
@@ -14,8 +14,9 @@ function ImageHover() {
     position: 'relative',
     top: '0',
     left: '0',
-    width: '50%', // Adjust width as needed
+    width: size,
     height: 'auto', // Adjust height as needed
+    margin: '1%',
   };
 
   return (

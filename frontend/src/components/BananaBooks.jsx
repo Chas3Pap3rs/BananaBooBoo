@@ -1,20 +1,10 @@
-// import { Link } from 'react-router-dom'
-// import axios from 'axios'
-// import { useEffect, useState } from 'react'
+import React from 'react'
 
-function Home() {
-    // const [data, setData] = useState([])
-
-    // useEffect(() => {
-    //     axios.get('http://localhost:4000')
-    //     .then(res => setData(res.data))
-    //     .catch(err => console.log(err))
-    // }, [])
-
+function BananaBooks() {
   return (
     <>
-      <div className="home-container">
-        <h1>Casa de Banana</h1>
+      <div className="books-container">
+        <h1>Banana Bookss</h1>
 
         <p>
                           /\
@@ -48,4 +38,4 @@ function Home() {
   )
 }
 
-export default Home
+export default BananaBooks

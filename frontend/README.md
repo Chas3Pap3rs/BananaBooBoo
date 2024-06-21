@@ -38,11 +38,22 @@ __________ ________   ________ __________ ________   ________
 
 * Instructions/Installation:
     - In Terminal @ frontend:
-        - npm install react react-bootstrap axios react-router-dom
+        - Base
+            - npm install react react-bootstrap axios react-router-dom
+        - Font Awesome
+            - ADD SVG CORE: 
+                - npm i --save @fortawesome/fontawesome-svg-core
+            - Add Icon Packages:
+                - npm i --save @fortawesome/free-solid-svg-icons
+                - npm i --save @fortawesome/free-regular-svg-icons
+                - npm i --save @fortawesome/free-brands-svg-icons
+
+
+
 
 * Additional Information:
 
-* Tech Used: HTML, CSS, JS, React, Vite, React Router, Bootstrap.
+* Tech Used: HTML, CSS, JS, React, Vite, React Router, Bootstrap, Font Awesome
 
 * Ideas for future improvements:
     1. Improvement 1
