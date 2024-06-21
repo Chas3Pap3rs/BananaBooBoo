@@ -1,0 +1,149 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-container {
+  border: solid 1px #FFFFFF;
+  border-radius: 15px;
+}
+
+.footer-container {
+  border: solid 1px #FFFFFF;
+  border-radius: 15px;
+}
+/* 
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+} */
+
+/* General styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.app-container {
+  display: flex; /* Allow header, sidebar, and content to sit side-by-side */
+  flex-direction: column;
+  min-height: 100vh; /* Set minimum height for full viewport */
+}
+
+/* Header styles */
+.app-header {
+  display: flex;
+  align-items: center; /* Center content vertically */
+  /* justify-content: space-between; Distribute content horizontally */
+  padding: 1rem;
+  border: solid #f0f0f0; /* Light gray background */
+  border-radius: 15px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Sidebar styles */
+.sidebar {
+  width: 180px; /* Set sidebar width */
+  padding: 1rem;
+  transition: width 0.3s ease-in-out; /* Smooth transition for collapse */
+  border: solid #f0f0f0;
+  border-radius: 15px;
+}
+
+.sidebar.collapsed {
+  width: 50px; /* Set collapsed sidebar width */
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  padding: 0.5rem 1rem; /* Padding for navigation items */
+  cursor: pointer; /* Set cursor to pointer for clickable items */
+}
+
+/* Main content styles */
+.main-content-wrapper {
+  flex: 1; /* Take up remaining space */
+  flex-direction: row !important;
+  padding: 1rem;
+  border: solid 5px red; /* Light gray background */
+}
+
+/* Footer styles */
+.footer {
+  padding: 1rem;
+  text-align: center;
+  background-color: #f0f0f0; /* Light gray background */
+  box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow for top */
+}
+
+@media (max-width: 768px) {
+  /* Styles for smaller screens */
+  .sidebar {
+    width: 100%; /* Full width on small screens */
+    position: fixed; /* Fix sidebar to the top */
+    top: 0;
+    left: 0;
+    height: 100vh; /* Full height on small screens */
+    background-color: rgba(0, 0, 0, 0.8); /* Darker overlay for sidebar */
+    transition: none; /* Disable transition on small screens */
+  }
+
+  .sidebar.collapsed {
+    display: none; /* Hide sidebar completely on small screens */
+  }
+
+  .sidebar.collapsed ul {
+    display: none; /* Hide navigation list when collapsed on small screens */
+  }
+
+  .app-container {
+    flex-direction: column; /* Stack header, content, and footer on small screens */
+  }
+
+  .app-header,
+  .main-content-wrapper,
+  .footer {
+    padding: 0.5rem; /* Reduce padding on smaller screens */
+  }
+}
