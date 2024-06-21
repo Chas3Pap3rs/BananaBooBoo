@@ -1,18 +1,38 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ImageHover from './ImageHover';
 import { Navbar, Nav } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
+import { Link, useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate(); // Initialize useNavigate
+  const [forceHover, setForceHover] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleResize = () => {
+      // Check if window width is less than or equal to 1000px
+      if (window.innerWidth <= 1000) {
+        setForceHover(isOpen); // Use isOpen state to determine forceHover
+      } else {
+        setForceHover(false); // Force close the image when window width is greater than 1000px
+      }
+    };
+
+    // Call handleResize on component mount to set initial state
+    handleResize();
+
+    // Add event listener for window resize
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup event listener on component unmount
+    return () => window.removeEventListener('resize', handleResize);
+  }, [isOpen]); // Re-run effect when isOpen changes
 
   const handleLogoClick = () => {
-    // Check if screen width is over 1000px
     if (window.innerWidth > 1000) {
-      navigate('/frontend/home'); // Navigate to home page
+      navigate('/frontend/home');
     } else {
-      setIsOpen(!isOpen); // Toggle navbar
+      setIsOpen(!isOpen);
     }
   };
 
@@ -22,16 +42,14 @@ const Header = () => {
         <Navbar bg="light" expand="lg">
           <Navbar.Brand href="#">
             <button className="large-logo-navbar-toggler" type="button" onClick={handleLogoClick}>
-              <ImageHover size="75%" className="imageHoverMargin" />
+              <ImageHover size="75%" forceHover={forceHover} className="imageHoverMargin" />
             </button>
           </Navbar.Brand>
-
-          {/* Conditional rendering based on isOpen state */}
           {isOpen && (
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
                 <Link to="/frontend/home" className="btn">Home</Link>
-                <Link to="/frontend/banana-scale" className="btn">Banana Scale/Converter</Link>
+                <Link to="/frontend/banana-scale" className="btn">Nanerverter</Link>
                 <Link to="/frontend/banana-recipes" className="btn">Banana Recipes</Link>
                 <Link to="/frontend/banana-fun-facts" className="btn">Banana Fun Facts</Link>
                 <Link to="/frontend/banana-forum" className="btn">Banana Forum</Link>

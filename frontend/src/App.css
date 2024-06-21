@@ -5,7 +5,7 @@
   text-align: center;
   align-items: center;
   justify-content: center;
-  background-color: goldenrod;
+  background-color: #e8b800;
 }
 
 /* General styles */
@@ -13,7 +13,12 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: goldenrod;
+  background-color: #e8b800;
+}
+
+a {
+  text-decoration: none; /* Remove underline */
+  color: black; /* Set default text color; change as needed */
 }
 
 /* Header styles */
@@ -41,8 +46,8 @@ body {
 
 .header-container .btn:hover {
   border: solid 1px black;
-  background-color: #402f07;
-  color: goldenrod;
+  background-color: black;
+  color: #e8b800;
   font-size: larger;
 }
 
@@ -127,11 +132,14 @@ body {
 .funfacts-container, 
 .forum-container, 
 .books-container {
+  background-color: black;
+  color: #e8b800;
   border: solid 1px black;
-  border-radius: 15px;
+  border-radius: 5px;
   padding: .5rem;
   margin: .25rem;
   min-height: 400px;
+  width: 100%;
 }
 
 /* Sidebar styles */
@@ -140,7 +148,7 @@ body {
   min-width: 180px; /* Set sidebar width */
   max-width: 300px;
   transition: width 0.3s ease-in-out; /* Smooth transition for collapse */
-  border-radius: 15px;
+  border-radius: 5px;
 }
 
 .sidebar-container.collapsed {
@@ -157,11 +165,35 @@ body {
 .sidebar-item {
   display: block;
   position: relative;
-  border: solid 1px black;
-  border-radius: 15px;
+  border-radius: 5px;
   margin: 5px;
   text-decoration: none; /* Remove underline from links */
   cursor: pointer; /* Set cursor to pointer for clickable items */
+  color: black; /* Match header button text color */
+  font-size: large; /* Match header button font size */
+  text-align: center; /* Center text */
+  padding: .25rem; /* Adjust padding to match header buttons if needed */
+  transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+.sidebar-item:hover {
+  border: solid 1px black; /* Match header button hover state border */
+  background-color: black; /* Match header button hover background color */
+  color: #e8b800; /* Match header button hover text color */
+  font-size: larger; /* Match header button hover font size */
+}
+
+/* Optional: Define a hover state for the links */
+.sidebar-item a:hover {
+  color: #e8b800; /* Example hover color; change as needed */
+}
+
+.sidebar-gif img{
+  padding-right: 20px;
+  margin-top: 1.5rem;
+  width: 100%; /* Adjust the width as needed or use a specific pixel value */
+  height: auto; /* Adjust the height as needed, 'auto' maintains aspect ratio */
+  object-fit: cover; /* This ensures the image covers the area, use 'contain' to fit the image within without cropping */
 }
 
 @media (max-width: 1000px) {
