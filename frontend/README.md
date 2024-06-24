@@ -18,10 +18,10 @@ BananaBooBoo.com
                 \ \   `. `-._              __..--' ,-';  /
                  \ `.   `-.   `-..___..---'   _.--'  ,  /
                   `. `.    `-._        __..--'     ,'  /
-                    `. `-_     ``--..''       _.-'  ,'
-                      `-_ `-.___        __,--'    ,'
-                         `-.__  `----"""    __.-'
-                              `--..____..--'                         
+                    `. `-_     ``--..''       _.-'   ,'
+                      `-_ `-.___        __,--'     ,'
+                         `-.__  `----"""     __.-'
+                               `--..____..--'                         
 __________    _____    _______      _____    _______      _____   
 \______   \  /  _  \   \      \    /  _  \   \      \    /  _  \  
  |    |  _/ /  /_\  \  /   |   \  /  /_\  \  /   |   \  /  /_\  \ 
@@ -40,20 +40,23 @@ __________ ________   ________ __________ ________   ________
     - In Terminal @ frontend:
         - Base
             - npm install react react-bootstrap axios react-router-dom
-        - Font Awesome
+        <!-- - Font Awesome
             - ADD SVG CORE: 
                 - npm i --save @fortawesome/fontawesome-svg-core
             - Add Icon Packages:
                 - npm i --save @fortawesome/free-solid-svg-icons
                 - npm i --save @fortawesome/free-regular-svg-icons
-                - npm i --save @fortawesome/free-brands-svg-icons
+                - npm i --save @fortawesome/free-brands-svg-icons -->
+    - In Terminal @ server:
+        - npm init -y
+        - npm i express ejs mysql2 cors
 
 
 
 
 * Additional Information:
 
-* Tech Used: HTML, CSS, JS, React, Vite, React Router, Bootstrap, Font Awesome
+* Tech Used: HTML, CSS, JS, React, Vite, React Router, Bootstrap, Axios
 
 * Ideas for future improvements:
     1. Improvement 1

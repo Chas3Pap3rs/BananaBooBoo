@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
-import './App.css';
+import{ useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import Home from './components/Home';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Sidebar from './components/Sidebar';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-// Import your new components
+import Login from './components/Login';
 import BananaScale from './components/BananaScale';
 import BananaRecipes from './components/BananaRecipes';
 import BananaFunFacts from './components/BananaFunFacts';
 import BananaForum from './components/BananaForum';
 import BananaBooks from './components/BananaBooks';
+
+import './App.css';
 
 function App() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -23,6 +25,7 @@ function App() {
           <Sidebar isSidebarCollapsed={isSidebarCollapsed} />
           <Routes>
             <Route path="frontend/home" element={<Home />} />
+            <Route path="frontend/login" element={<Login />} />
             <Route path="frontend/banana-scale" element={<BananaScale />} />
             <Route path="frontend/banana-recipes" element={<BananaRecipes />} />
             <Route path="frontend/banana-fun-facts" element={<BananaFunFacts />} />
