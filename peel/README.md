@@ -44,7 +44,7 @@ __________ ________   ________ __________ ________   ________
 
 * Description: A banana forum with a banana convertor for weight, 
     distance, etc; talk about banana recipes, conversions, fun facts, 
-    and books!
+    and books! 
 
 * Instructions/Installation:
     - In Terminal @ peel(client/frontend):
@@ -52,6 +52,12 @@ __________ ________   ________ __________ ________   ________
     - In Terminal @ banana(server/backend):
         - npm init -y
         - npm install bcrypt jsonwebtoken express ejs mysql2 cors dotenv
+    - DATABASE:
+        - Copy paste contents of associated bananabase.txt file in your SQL database management tool 
+        on your server/local machine to set up the initial data structure and populate it with the 
+        provided sample data, including an admin account *
+            * username: "banadmin", password: "banana" (user_id = 1) *
+        
 
 * Additional Information:
 
@@ -59,7 +65,9 @@ __________ ________   ________ __________ ________   ________
 
 * Ideas for future improvements:
     1. Improvement 1: Change layout to a typical form instead of tables.
-    2. Improvement 2: Update page navigation/location so posting, editing, and deleteting questions and answers takes user back to their previous page before selecting a specific action (it currently always routes user back to the home page).
+    2. Improvement 2: Update page navigation/location so posting, editing, and 
+    deleteting questions and answers takes user back to their previous page before 
+    selecting a specific action (it currently always routes user back to the home page).
     3. Improvement 3
 
 * User stories:
@@ -79,39 +87,29 @@ __________ ________   ________ __________ ________   ________
 
     bananabooboo {
         answers {
-            answer_id,
-            answer,
-            question_id,
-            user_id,
-            answer_created
+            answer_id (PRI, int) {},
+            answer (text) {},
+            question_id (MUL, int) {},
+            user_id (int) {},
+            answer_created (datetime, current_time) {}
         },
         categories {
-            category_id {
-                1,
-                2,
-                3,
-                4
-            },
-            category_name {
-                conversion,
-                recipes
-                funfacts,
-                books,
-            },
+            category_id {1, 2, 3, 4},
+            category_name {conversion,recipes,funfacts,books},
         },
         questions {
-            question_id,
-            question_title
-            question,
-            category_id,
-            user_id,
-            question_created
+            question_id {},
+            question_title {},
+            question {},
+            category_id {},
+            user_id {},
+            question_created {}
         },
         users {
-            user_id,
-            user_name,
-            user_email,
-            password,
-            user_created
+            user_id {1},
+            user_name {banadmin},
+            user_email {banadmin@bananabooboo.com},
+            password {$2b$10$6CqSF9fPn3lKqfgNu/amkOwdDZ8iH/Qmq0o/1YT69qOCjtDm3H2D2},
+            user_created {2024-07-01 15:53:05}
         },
     }
