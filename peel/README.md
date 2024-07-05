@@ -7,15 +7,8 @@
     - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 ]
 
-* Installs:
-    - peel
-        - npm install axios react-router-dom react-bootstrap
-    - banana
-        - npm install bcrypt jsonwebtoken
-
-
 Chase Poulton
-BananaBooBoo.com          
+BananaBooBoo      
              /\
             V  \
              \  \
@@ -64,11 +57,15 @@ __________ ________   ________ __________ ________   ________
 * Tech Used: HTML, CSS, JS, React, Vite, React Router, Bootstrap, Axios
 
 * Ideas for future improvements:
-    1. Improvement 1: Change layout to a typical form instead of tables.
-    2. Improvement 2: Update page navigation/location so posting, editing, and 
+    1. Change layout to a typical form instead of tables.
+    2. Update page navigation/location so posting, editing, and 
     deleteting questions and answers takes user back to their previous page before 
     selecting a specific action (it currently always routes user back to the home page).
-    3. Improvement 3
+    3. Include view options on each category page to view data from APIs
+        - API Resources for future improvements:
+            - https://www.fruityvice.com/
+            - https://www.edamam.com/
+            - https://www.themealdb.com/api.php
 
 * User stories:
     1. As Ricky, I want to ask questions about recipes, so I can get suggestions from other users.
@@ -81,7 +78,10 @@ __________ ________   ________ __________ ________   ________
     - Banana Fun Facts
     - Banana Books
 
-
+* Image Resources:
+    - https://gifdb.com/images/high/super-mario-dancing-with-banana-pixel-art-sbfc9utlc81ptxe2.gif
+    - https://media.tenor.com/5Ie0r-H6LBAAAAAj/dancing-banana-happy.gif
+    - https://66.media.tumblr.com/tumblr_mac1m0fkEE1rfjowdo1_640.gif
 
 * Database Layout:
 
