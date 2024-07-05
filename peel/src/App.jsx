@@ -7,9 +7,12 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import Home from './components/Home'
 import Login from './components/Login'
 import Signup from './components/Signup'
-import Edit from './components/Edit'
 import Post from './components/Post'
+import Edit from './components/Edit'
+import DeletePost from './components/DeletePost'
 import Answer from './components/Answer'
+import EditAnswer from './components/EditAnswer';
+import DeleteAnswer from './components/DeleteAnswer';
 import Conversions from './components/Conversions'
 import Recipes from './components/Recipes'
 import FunFacts from './components/FunFacts'
@@ -40,15 +43,18 @@ function App() {
             <Sidebar />
           <Routes>
             <Route path="/" element={<Home />}></Route>
-            <Route path="/edit/:id" element={<ProtectedRoute><Edit /></ProtectedRoute>}></Route>
-            <Route path="/answer/:question_id" element={<ProtectedRoute><Answer /></ProtectedRoute>}></Route>
             <Route path="/login" element={<Login />}></Route>
-            <Route path="/post" element={<Post />}></Route>
             <Route path="/signup" element={<Signup />}></Route>
             <Route path="/conversions" element={<ProtectedRoute><Conversions /></ProtectedRoute>}></Route>
             <Route path="/recipes" element={<ProtectedRoute><Recipes /></ProtectedRoute>}></Route>
             <Route path="/funfacts" element={<ProtectedRoute><FunFacts /></ProtectedRoute>}></Route>
             <Route path="/books" element={<ProtectedRoute><Books /></ProtectedRoute>}></Route>
+            <Route path="/post" element={<ProtectedRoute><Post /></ProtectedRoute>}></Route>
+            <Route path="/edit/:id" element={<ProtectedRoute><Edit /></ProtectedRoute>}></Route>
+            <Route path="/delete-question/:id" element={<ProtectedRoute><DeletePost /></ProtectedRoute>} />
+            <Route path="/answer/:question_id" element={<ProtectedRoute><Answer /></ProtectedRoute>}></Route>
+            <Route path="/edit-answer/:id" element={<ProtectedRoute><EditAnswer /></ProtectedRoute>} />
+            <Route path="/delete-answer/:id" element={<ProtectedRoute><DeleteAnswer /></ProtectedRoute>} />
             </Routes>
           </div>
             <Footer />

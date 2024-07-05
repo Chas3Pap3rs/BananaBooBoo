@@ -1,10 +1,11 @@
-import { Link, useParams, useNavigate } from 'react-router-dom'
+import { Link, useParams, useNavigate, useLocation } from 'react-router-dom'
 import axios from 'axios'
 import {useEffect, useState} from 'react'
 function Edit() {
 
     const {id} = useParams()
     const navigate = useNavigate()
+    const location = useLocation();
 
     const [dataLoaded, setDataLoaded] = useState(false);
     const [values, setValues] = useState({
@@ -17,7 +18,7 @@ function Edit() {
 
 
     useEffect(()=> {
-        axios.get(`http://localhost:4000/edit/`+id)
+        axios.get(`http://localhost:4000/edit/${id}`)
         .then(res=> {
             setValues({...values, 
                 question_id: res.data[0].question_id, 
@@ -37,7 +38,8 @@ function Edit() {
         axios.post(`http://localhost:4000/edit/`, values)
         .then(res=> {
             console.log(res)
-            navigate('/')
+            const previousPath = location.state?.from || '/';
+            navigate(previousPath);
         })
         .catch(err=> console.error(err))
 

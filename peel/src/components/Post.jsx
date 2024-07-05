@@ -1,6 +1,6 @@
-import { Link, useParams, useNavigate, useLocation } from 'react-router-dom';
+import { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
 
 function Post() {
     const navigate = useNavigate();
@@ -13,77 +13,64 @@ function Post() {
         user_id: localStorage.getItem('user_id') || '',
     });
 
-    function handleSubmit(e) {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
         axios.post('http://localhost:4000/post', values)
             .then(res => {
                 console.log(res);
-                navigate('/');
+                // Determine where to navigate based on the previous location
+                const previousPath = location.state?.from || '/';
+                navigate(previousPath);
             })
             .catch(err => console.error(err));
-    }
+    };
 
-    function handleInputChange(e) {
+    const handleInputChange = (e) => {
         const { name, value } = e.target;
         setValues({ ...values, [name]: value });
-    }
+    };
 
     return (
-        <>
-            <div className="post-container">
-                <h1>Post Question:</h1>
-                
-                <form onSubmit={handleSubmit}>
-                    <div>
-                        <label htmlFor="question_title">Title:
-                            <br />
-                            <input
-                                type="text"
-                                name="question_title"
-                                id="question_title"
-                                value={values.question_title}
-                                onChange={handleInputChange}
-                            />
-                        </label>
-                    </div>
-                    <br />
-                    <div>
-                        <label htmlFor="question">Question:
-                            <br />
-                            <textarea
-                                name="question"
-                                id="question"
-                                value={values.question}
-                                onChange={handleInputChange}
-                            />
-                        </label>
-                    </div>
-                    <br />
-                    <div>
-                        <label htmlFor="category_id">Category:
-                            <select
-                                name="category_id"
-                                id="category_id"
-                                value={values.category_id}
-                                onChange={handleInputChange}
-                            >
-                                <option value="1">Conversions</option>
-                                <option value="2">Recipes</option>
-                                <option value="3">Fun Facts</option>
-                                <option value="4">Books</option>
-                            </select>
-                        </label>
-                    </div>
-                    <br />
-                    <div>
-                        <input type="submit" value="Submit" />
-                    </div>
-                </form>
-            </div>
-        </>
+        <div className="post-container">
+            <h1>Post Question:</h1>
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="question_title">Title:</label>
+                <input
+                    type="text"
+                    name="question_title"
+                    id="question_title"
+                    value={values.question_title}
+                    onChange={handleInputChange}
+                />
+                <br />
+                <label htmlFor="question">Question:</label>
+                <textarea
+                    name="question"
+                    id="question"
+                    value={values.question}
+                    onChange={handleInputChange}
+                />
+                <br />
+                <label htmlFor="category_id">Category:</label>
+                <select
+                    name="category_id"
+                    id="category_id"
+                    value={values.category_id}
+                    onChange={handleInputChange}
+                >
+                    <option value="1">Conversions</option>
+                    <option value="2">Recipes</option>
+                    <option value="3">Fun Facts</option>
+                    <option value="4">Books</option>
+                </select>
+                <br />
+                <input type="submit" value="Submit" />
+            </form>
+        </div>
     );
 }
 
 export default Post;
+
 

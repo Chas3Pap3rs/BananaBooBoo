@@ -86,6 +86,20 @@ app.post('/edit', (req, res) => {
     })
 })
 
+// Delete Question
+app.delete('/delete-question/:id', (req, res) => {
+    const id = req.params.id;
+
+    conn.query('DELETE FROM questions WHERE question_id = ?', [id], (err, result) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send('Server error');
+        }
+
+        res.send('Question deleted successfully');
+    });
+});
+
 app.post('/answer', (req, res) => {
     const { answer, question_id, user_id } = req.body;
 
@@ -114,6 +128,48 @@ app.get('/answers/:question_id', (req, res) => {
 
         res.send(rows);
         res.end();
+    });
+});
+
+app.get('/edit-answer/:id', (req, res) => {
+    const id = req.params.id;
+
+    conn.query('SELECT * FROM answers WHERE answer_id = ?', [id], (err, rows) => {
+        if (err) {
+            console.log(err);
+            throw err;
+        }
+        res.send(rows[0]); // Send the first row as the answer
+        res.end();
+    });
+});
+
+app.post('/edit-answer', (req, res) => {
+    const { answer_id, answer, question_id, user_id } = req.body;
+
+    const sqlEdit = `UPDATE answers SET answer = ?, question_id = ?, user_id = ? WHERE answer_id = ?`;
+
+    conn.query(sqlEdit, [answer, question_id, user_id, answer_id], (err, result) => {
+        if (err) {
+            console.log(err);
+            throw err;
+        }
+        res.send('Answer updated successfully');
+        res.end();
+    });
+});
+
+// Delete Answer
+app.delete('/delete-answer/:id', (req, res) => {
+    const id = req.params.id;
+
+    conn.query('DELETE FROM answers WHERE answer_id = ?', [id], (err, result) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send('Server error');
+        }
+
+        res.send('Answer deleted successfully');
     });
 });
 
@@ -179,3 +235,6 @@ app.post('/login', (req, res) => {
        res.json({ message: 'User logged in successfully', token: token, user_id: user.user_id });
     });
 });
+
+
+
