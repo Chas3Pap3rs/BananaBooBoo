@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '/src/context/AuthContext.jsx';
+import React from 'react'
 
 function Sidebar() {
     const isLoggedIn = !!localStorage.getItem('token'); // Assuming token is stored in localStorage
