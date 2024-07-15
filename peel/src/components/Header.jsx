@@ -4,6 +4,7 @@ import { Navbar, Nav } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '/src/context/AuthContext'; 
 
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [forceHover, setForceHover] = useState(false);
